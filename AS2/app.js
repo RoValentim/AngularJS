@@ -30,6 +30,8 @@
                         var buyItems = [
                                 { name:"Cookies", quantity:10 },
                                 { name:"Milk",    quantity:1 },
+                                { name:"Coke",    quantity:5 },
+                                { name:"Pizza",   quantity:3 },
                                 { name:"Donuts",  quantity:20 }
                         ];
 
