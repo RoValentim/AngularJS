@@ -1,0 +1,20 @@
+<h2>Category : {{$ctrl.categoryDetails.categoryName}}</h2>
+<h3>Category Short Name : {{$ctrl.categoryDetails.categoryShortName}}</h3>
+<h3 ng-show="$ctrl.categoryDetails.categorySpecialInstruction">Category Special Instruction : {{$ctrl.categoryDetails.categorySpecialInstruction}}</h3>
+
+<div class="row">
+        <table class="table-condensed table-bordered">
+                <thead>
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th>Description</th>
+                </thead>
+                <tbody>
+                        <tr ng-repeat="item in $ctrl.itemsList">
+                                <td>{{$index+1}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.description}}</td>
+                        </tr>
+                </tbody>
+        </table>
+</div>
