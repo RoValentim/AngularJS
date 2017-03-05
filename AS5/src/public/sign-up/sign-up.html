@@ -1,0 +1,85 @@
+<div class="container">
+        <h2>Sign Up</h2>
+        <fieldset>
+                <legend>Registration</legend>
+                <form name='regForm' novalidate>
+                        First Name:
+                        <input style="color: #000000;"
+                                type="text" name="firstName" placeholder="Yout First Name"
+                                ng-model="reg.user.firstName"
+                                required
+                                minlength="4"
+                                ng-maxlength="15">
+                        <span
+                                ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">
+                                First Name must be at least 4 characters long
+                        </span>
+                                <span ng-if="regForm.firstName.$error.maxlength && regForm.firstName.$touched">
+                                First Name must not be longer than 15 characters
+                        </span>
+                        <br>
+
+                        Last Name:
+                        <input style="color: #000000;"
+                                type="text" name="lastName" placeholder="Yout Last Name"
+                                ng-model="reg.user.lastName"
+                                required
+                                minlength="4"
+                                ng-maxlength="15">
+                        <span
+                                ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">
+                                Last Name must be at least 4 characters long
+                        </span>
+                        <span ng-if="regForm.lastName.$error.maxlength && regForm.lastName.$touched">
+                                Last Name must not be longer than 15 characters
+                        </span>
+                        <br>
+
+                        E-mail:
+                        <input style="color: #000000;"
+                                type="email" name="email" placeholder="Email"
+                                ng-model="reg.user.email"
+                                required>
+                        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+                                Must be a valid email address: handle@domain format
+                        </span>
+                        <br>
+
+                        Phone number:
+                        <input style="color: #000000;"
+                                type="text" name="phone" placeholder="Phone ###-###-####"
+                                ng-model="reg.user.phone"
+                                pattern="(\d{3})-(\d{3})-(\d{4})">
+                        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+                                Phone must be in the format ###-###-####.
+                        </span>
+                        <br>
+
+                        Specify the menu number that's your favorite dish:
+                        <input style="color: #000000;"
+                                type="text" name="favoriteDish" placeholder="Favorite Dish Number"
+                                ng-model="reg.user.favoriteDish"
+                                required>
+                        <span ng-if="regForm.phone.$favoriteDish && regForm.favoriteDish.$touched">
+                                Favorite Dish must be set.
+                        </span>
+                        <br>
+                        <div id="info" ng-if="memuSignUpCtrl.completed">
+                                <img class="img-responsive" width="250" height="150" ng-src="{{memuSignUpCtrl.basePath}}/images/{{reg.user.favoriteDish}}.jpg">
+                        </div>
+
+                        <br />
+                        <button style="color: #000000;"
+                                ng-disabled="regForm.$invalid"
+                                ng-click="memuSignUpCtrl.submit()">
+                                Submit
+                        </button>
+                        <div id="info" ng-if="memuSignUpCtrl.noDish">
+                                No such menu number exists
+                        </div>
+                        <div id="info" ng-if="memuSignUpCtrl.completed">
+                                <h3>Your information has been saved.</h3>
+                        </div>
+                </form>
+        </fieldset>
+</div>
