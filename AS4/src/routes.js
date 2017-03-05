@@ -7,7 +7,7 @@
         RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
         function RoutesConfig( $stateProvider, $urlRouterProvider ) {
                 // Redirect to home if no other URL matches
-                $urlRouterProvider.otherwise('/AngularJS/AS4/');
+                $urlRouterProvider.otherwise('/');
 
                 // Set up UI states
                 $stateProvider
